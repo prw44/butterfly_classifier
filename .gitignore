@@ -216,3 +216,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Data (raw images/datasets — too large to commit)
+data/*
+!data/.gitkeep
+
+# Model checkpoints (trained weights — large binary files)
+*.pt
+*.pth
+models/*
+!models/.gitkeep
+
+# MLflow
+mlruns/
+mlartifacts/
+mlflow.db
+
+# SQLite databases (runtime data — the file itself, not just Django's specific names)
+*.db
+*.sqlite3
