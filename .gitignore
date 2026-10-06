@@ -218,7 +218,7 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Data (raw images/datasets — too large to commit)
-data/*
+data/**
 !data/.gitkeep
 
 # Model checkpoints (trained weights — large binary files)

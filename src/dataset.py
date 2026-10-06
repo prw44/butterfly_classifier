@@ -46,12 +46,12 @@ def create_dataloader(train = True):
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
     
     if train:
-        csv_file = "data/Training_set.csv"
+        csv_file = "data/Training_split.csv"
         img_dir = "data/train"
 
     else:
-        csv_file = "data/Testing_set.csv"
-        img_dir = "data/test"
+        csv_file = "data/Validation_split.csv"
+        img_dir = "data/train"
     
     dataset = CustomDataset(
         csv_file=csv_file,
