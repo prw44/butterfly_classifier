@@ -226,6 +226,7 @@ data/**
 *.pth
 models/*
 !models/.gitkeep
+!models/classes.txt
 
 # MLflow
 mlruns/

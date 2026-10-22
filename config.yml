@@ -1,0 +1,2 @@
+model_path: models/butterfly_classifier.pt
+classes_path: models/classes.txt
