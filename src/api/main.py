@@ -1,13 +1,20 @@
-from fastapi import FastAPI, File, UploadFile
-from src.api.predictor import ImagePredictor
+from fastapi import FastAPI, File, UploadFile, HTTPException
+from src.api.predictor import ImageClassifier
 from PIL import UnidentifiedImageError
 
 
-app = FastAPI(title = "ButterflyClassifier")
+app = FastAPI(title="Butterfly Classifier")
 
 predictor_config_path = "config.yml"
-predictor = ImagePredictor.init_from_config_path(predictor_config_path)
+predictor = ImageClassifier.init_from_config_path(predictor_config_path)
 
 @app.post("/predict")
 def predict(file: UploadFile = File(...)):
-    return predictor.predict_from_file(file.file)
+    try:
+        return {"predictions": predictor.predict_from_file(file.file)}
+    except UnidentifiedImageError:
+        raise HTTPException(status_code=400, detail="Could not read the image.")
+
+@app.get("/status")
+def status():
+    return {"status": "working"}

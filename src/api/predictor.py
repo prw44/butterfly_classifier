@@ -35,7 +35,7 @@ class ImageClassifier:
             config = yaml.load(f, yaml.SafeLoader)
 
         model = cls(model_path = config["model_path"],
-                    classes_path = config["classes"])
+                    classes_path = config["classes_path"])
 
         return model
 
